@@ -105,7 +105,7 @@ function base() {
     cd
     [ -d openair-cn ] || git clone https://gitlab.eurecom.fr/oai/openair-cn.git
     # this is probably useless, but well
-    [ -d r2lab-embedded ] || git clone https://github.com/fit-r2lab/r2lab-embedded.git
+    [ -d r2lab-embedded ] || git clone https://github.com/Imyne/r2lab-embedded.git
 
 ##   Following is now useless as it is done in the u16 low-latency image and it requires a reboot to be active
 #    echo "========== Setting up cpufrequtils"
