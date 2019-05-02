@@ -674,17 +674,19 @@ function scramble-uplink() { -scramble uplink "-g 70"; }
 function scramble-uplink-mid() { -scramble uplink "-g 80"; }
 function scramble-uplink-blast() { -scramble uplink "-g 110"; }
 
-#doc-nodes 'scramble-noise' "shortcuts for scrambling my demo; "
-function scramble-noise() { 
-
-    local command="uhd_siggen --gaussian $uplink_freq -g 90 "
+doc-nodes 'scrambling-noise' "shortcuts for scrambling my demo; "
+function scrambling-noise() { 
+    local command="uhd_fft $uplink_freq -s 25M"
+    echo $command
+    $command
+    #local command="uhd_siggen --gaussian $uplink_freq"
   
     #for force in 70 80 100; do
 	
 	#command="$command -g $force"
-    	echo "About to run command:"
-    	echo $command
-    	$command
+    	#echo "About to run command:"
+    	#echo $command
+    	#$command
 	#sleep 60
    #done
 }
