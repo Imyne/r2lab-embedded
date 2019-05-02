@@ -677,12 +677,11 @@ function scramble-uplink-blast() { -scramble uplink "-g 110"; }
 doc-nodes 'scramble-noise' "shortcuts for scrambling my demo; "
 function scramble-noise() { 
 
-    local command="uhd_siggen --gaussian"
+    local command="uhd_siggen --gaussian $uplink_freq"
   
-    command="$command $uplink_freq" ;;
-    for g in 70 80 100; do
+    for force in 70 80 100; do
 	
-	command="$command $g"
+	command="$command -g $force"
     	echo "About to run command:"
     	echo $command
     	$command
