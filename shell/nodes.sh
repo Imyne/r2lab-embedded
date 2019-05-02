@@ -674,6 +674,22 @@ function scramble-uplink() { -scramble uplink "-g 70"; }
 function scramble-uplink-mid() { -scramble uplink "-g 80"; }
 function scramble-uplink-blast() { -scramble uplink "-g 110"; }
 
+doc-nodes 'scramble-noise' "shortcuts for scrambling my demo; "
+function scramble-noise() { 
+
+    local command="uhd_siggen --gaussian"
+  
+    command="$command $uplink_freq" ;;
+    for g in 70 80 100; do
+	
+	command="$command $g"
+    	echo "About to run command:"
+    	echo $command
+    	$command
+	sleep 60
+   done
+}
+
 doc-nodes watch-uplink "Run uhd_fft on band7 uplink"
 function watch-uplink() {
     local command="uhd_fft $uplink_freq -s 25M"
