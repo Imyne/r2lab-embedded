@@ -675,20 +675,18 @@ function scramble-uplink-mid() { -scramble uplink "-g 80"; }
 function scramble-uplink-blast() { -scramble uplink "-g 110"; }
 
 doc-nodes 'scrambling-noise' "shortcuts for scrambling my demo; "
-function scrambling-noise() { 
-    local command="uhd_fft $uplink_freq -s 25M"
-    echo $command
-    $command
-    #local command="uhd_siggen --gaussian $uplink_freq"
+function scramble-noise() { 
+
+    local command="uhd_siggen --gaussian $uplink_freq"
   
-    #for force in 70 80 100; do
+    for force in 70 80 100; do
 	
-	#command="$command -g $force"
-    	#echo "About to run command:"
-    	#echo $command
-    	#$command
-	#sleep 60
-   #done
+	command="$command -g $force"
+    	echo "About to run command:"
+    	echo $command
+    	$command
+	sleep 60
+   done
 }
 
 doc-nodes watch-uplink "Run uhd_fft on band7 uplink"
@@ -700,9 +698,19 @@ function watch-uplink() {
 
 doc-nodes watch-downlink "Run uhd_fft on band7 downlink"
 function watch-downlink() {
-    local command="uhd_fft $downlink_freq -s 25M"
-    echo $command
-    $command
+    #local command="uhd_fft $downlink_freq -s 25M"
+    #echo $command
+    #$command
+   local command="uhd_siggen --gaussian $uplink_freq"
+  
+    for force in 70 80 100; do
+	
+	command="$command -g $force"
+    	echo "About to run command:"
+    	echo $command
+    	$command
+	sleep 60
+   done
 }
 ########################################
 define-main "$0" "$BASH_SOURCE"
