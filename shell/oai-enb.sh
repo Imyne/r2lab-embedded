@@ -80,7 +80,9 @@ function base() {
     # following should be useless
     echo "========== Running git clone for r2lab and openinterface5g"
     cd
-    [ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+    #[ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+     [ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/imaneouss/openairinterface5g.git
+
     [ -d /root/r2lab-embedded ] || git clone https://github.com/Imyne/r2lab-embedded.git
 }
 
