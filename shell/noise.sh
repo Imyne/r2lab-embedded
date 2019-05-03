@@ -6,7 +6,7 @@ uplink_freq="--freq=2.54G"
 
 
 #doc-nodes 'scrambling-noise' "shortcuts for scrambling my demo; "
-scrambling-noise() { 
+function scrambling-noise{ 
 
     local command="uhd_siggen --gaussian $uplink_freq"
   
