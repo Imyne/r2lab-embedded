@@ -42,7 +42,8 @@ EOF
     }
 
 ##########
-function git-pull-r2lab() { -git-pull-repos https://github.com/Imyne/r2lab-embedded.git; }
+#function git-pull-r2lab() { -git-pull-repos https://github.com/Imyne/r2lab-embedded.git; }
+function git-pull-r2lab() { git pull https://github.com/Imyne/r2lab-embedded.git; }
 doc-nodes git-pull-r2lab "updates /root/r2lab-embedded from upstream (github) repo"
 
 # branches MUST be specified
