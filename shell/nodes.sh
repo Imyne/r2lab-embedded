@@ -675,7 +675,7 @@ function scramble-uplink-mid() { -scramble uplink "-g 80"; }
 function scramble-uplink-blast() { -scramble uplink "-g 110"; }
 
 doc-nodes 'scrambling-noise' "shortcuts for scrambling my demo; "
-scrambling-noise() { 
+function scrambling-noise() { 
 
     local command="uhd_siggen --gaussian $uplink_freq"
   
