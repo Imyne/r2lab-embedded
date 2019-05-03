@@ -1,5 +1,5 @@
 #!/bin/bash
-##### it's my repo
+
 [ -z "$_sourced_nodes" ] && source $(dirname $(readlink -f $BASH_SOURCE))/nodes.sh
 
 doc-nodes-sep "#################### For managing an OAI enodeb"
@@ -80,8 +80,8 @@ function base() {
     # following should be useless
     echo "========== Running git clone for r2lab and openinterface5g"
     cd
-    [ -d openairinterface5g ] || git clone https://github.com/Imyne/opran.git
-    [ -d /root/r2lab-embedded ] || git clone https://github.com/Imyne/r2lab-embedded.git
+    [ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+    [ -d /root/r2lab-embedded ] || git clone https://github.com/fit-r2lab/r2lab-embedded.git
 }
 
 
