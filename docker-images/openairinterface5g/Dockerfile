@@ -4,7 +4,7 @@ FROM fitr2lab/ubuntu16:latest
 
 RUN mkdir /root/openair \
  && cd /root/openair \
- && git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git 
+ && git clone https://gitlab.eurecom.fr/imaneouss/openairinterface5g.git 
 
 # build-and-push.sh populates the docker build dir with all shell/* scripts
 # it is more convenient this way as we use the versions from our own disk rather
