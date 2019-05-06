@@ -275,13 +275,13 @@ s|MME_IPV4_ADDRESS_FOR_S1_MME.*=.*|MME_IPV4_ADDRESS_FOR_S1_MME = "${localip}";|
 s|MME_INTERFACE_NAME_FOR_S11_MME.*=.*|MME_INTERFACE_NAME_FOR_S11_MME = "lo";|
 s|MME_IPV4_ADDRESS_FOR_S11_MME.*=.*|MME_IPV4_ADDRESS_FOR_S11_MME = "127.0.2.1/8";|
 s|SGW_IPV4_ADDRESS_FOR_S11.*=.*|SGW_IPV4_ADDRESS_FOR_S11 = "127.0.3.1/8";|
-s|"CONSOLE" |  ### |"${out_mme}"
+s|"CONSOLE" 
 /MNC="93".*},/d
 s|MNC="93"|MNC="95"|
 EOF
     echo "(Over)writing $conf_dir/mme.conf"
     sed -f mme-r2lab.sed < mme.conf > $conf_dir/mme.conf
-    # remove the extra TAC entries
+    # remove the extra TAC entries |  ### |"${out_mme}"
 
     cat > mme_fd-r2lab.sed <<EOF
 s|Identity.*=.*|Identity="${fitid}.${oai_realm}";|
