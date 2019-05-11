@@ -4,7 +4,6 @@ apt update
 
 apt install iperf3 -y
 
-usb-reset()
 
 ifup enx0c5b8f279a64
 
