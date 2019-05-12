@@ -506,6 +506,8 @@ function populate-hss-db() {
 
 ####################
 function start() {
+    $(turn-on-data)
+    $(increase-data-mtu)
     start-hss
     start-epc
 }
