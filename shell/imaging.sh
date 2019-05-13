@@ -509,7 +509,7 @@ doc-imaging new-common-setup-r2lab-repo "set up /root/r2lab-embedded"
 function new-common-setup-r2lab-repo () {
     type -p git 2> /dev/null || { echo "git not installed - cannot proceed"; return; }
     cd /root
-    [ -d r2lab-embedded ] || git clone https://github.com/Imyne/opran.git
+    [ -d r2lab-embedded ] || git clone https://github.com/Imyne/r2lab-embedded.git
     cd /root/r2lab-embedded
     git pull
     # clean up old layout
