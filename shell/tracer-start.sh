@@ -14,7 +14,8 @@ function start-tracer() {
     cd ..
     cd /root/openairinterface5g/common/utils/T/tracer
     make
-    ./textlog -no-gui -on ENB_PHY_DLSCH_UE_DCI -on ENB_PHY_ULSCH_UE_DCI -d ../T_messages.txt -ip 192.168.3.23 >& tracelog.log
+    ./textlog -no-gui -ON -d ../T_messages2.txt -ip 192.168.3.23 >& tracelog.log
+    #./textlog -no-gui -on ENB_PHY_DLSCH_UE_DCI -on ENB_PHY_ULSCH_UE_DCI -d ../T_messages.txt -ip 192.168.3.23 >& tracelog.log
 
 }
 
