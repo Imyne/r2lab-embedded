@@ -22,17 +22,14 @@ lte_pcap="$run_dir/softmodem.pcap"
 # the output of start-tcpdump-data
 add-to-datas "/root/data-${oai_role}.pcap"
 
-#conf_dir=$OPENAIR_HOME/ci-scripts/conf_files
-#template=enb.band7.tm1.25PRB.usrpb210.conf
 conf_dir=$OPENAIR_HOME/targets/PROJECTS/GENERIC-LTE-EPC/CONF
-#template=enb.band7.tm1.50PRB.usrpb210.conf
 template=enb.band7.tm1.usrpb210.conf
 #following template name corresponds to the latest buggy develop version
 #template=enb.band7.tm1.50PRB.usrpb210.conf
 #conf_rf_limesdr=$OPENAIR_HOME/targets/ARCH/LMSSDR/LimeSDR_above_1p8GHz.ini
 conf_rf_limesdr=$OPENAIR_HOME/targets/ARCH/LMSSDR/LimeSDR_above_1p8GHz_1v4.ini
 config=r2lab.conf
-#add-to-configs $conf_dir/$config
+add-to-configs $conf_dir/$config
 add-to-configs $conf_rf_limesdr
 
 doc-nodes dumpvars "list environment variables"
@@ -83,10 +80,8 @@ function base() {
     # following should be useless
     echo "========== Running git clone for r2lab and openinterface5g"
     cd
-    #[ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
-     [ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/imaneouss/openairinterface5g.git
-
-    [ -d /root/r2lab-embedded ] || git clone https://github.com/Imyne/r2lab-embedded.git
+    [ -d openairinterface5g ] || git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+    [ -d /root/r2lab-embedded ] || git clone https://github.com/fit-r2lab/r2lab-embedded.git
 }
 
 
@@ -158,7 +153,7 @@ function build-oai5g() {
 
     #Run the build by default with oscillo function enabled (option -x). Use -d option to enable it when running.
     echo Building lte-softmodem for $SDR_DEV in $(pwd) - see 'build*log'
-    #run-in-log build-oai-external.log ./build_oai -I --eNB -x --install-system-files -w $SDR_DEV
+    run-in-log build-oai-external.log ./build_oai -I --eNB -x --install-system-files -w $SDR_DEV
     run-in-log build-oai-usrp.log ./build_oai -c -w $SDR_DEV -x --eNB
 
 }
@@ -343,7 +338,7 @@ function start() {
 
     cd $run_dir
     echo "In $(pwd); running lte-softmodem in background"
-    command="./lte-softmodem -O $conf_dir/$config"
+    command="./lte-softmodem -O $conf_dir/$config --T_stdout 0"
     if [ -n "$SAVE_PCAP" ]; then
             command="$command -P softmodem.pcap"
     fi
