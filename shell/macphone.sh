@@ -22,14 +22,14 @@ function refresh() {
     source ~/.bash_profile
 }
 
-doc-phone phone-start-app "start an app from its package name"
-function phone-start-app() {
-    package_name=$1; shift
+#doc-phone phone-start-app "start an app from its package name"
+#function phone-start-app() {
+ #   package_name=$1; shift
     # default : speedtest
-    [ -z "$package_name" ] && package_name="org.zwanoo.android.speedtest"
-    echo "Starting app $package_name"
-    $adb shell monkey -p $package_name -c android.intent.category.LAUNCHER 1
-}
+  #  [ -z "$package_name" ] && package_name="org.zwanoo.android.speedtest"
+  #  echo "Starting app $package_name"
+  #  $adb shell monkey -p $package_name -c android.intent.category.LAUNCHER 1
+#}
 
 doc-phone phone-wifi-on "turn on wifi (tested on nexus 5)"
 function phone-wifi-on() {
