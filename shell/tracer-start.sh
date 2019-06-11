@@ -14,7 +14,7 @@ function start-tracer() {
     cd ..
     cd /root/openairinterface5g/common/utils/T/tracer
     make
-    ./textlog -no-gui -on ENB_PHY_ULSCH_UE_DCI -on ENB_PHY_PUSCH_IQ -on ENB_PHY_PHICH -on ENB_PHY_PUCCH_1_ENERGY -d ../T_messages.txt -on ENB_MAC_UE_UL_SCHEDULE -on ENB_MAC_UE_UL_PDU_WITH_DATA -on ENB_MAC_UE_UL_PDU -on ENB_MAC_UE_UL_SDU -on ENB_MAC_UE_UL_SDU_WITH_DATA -on LEGACY_PHY_INFO -ip 192.168.3.16 >& tracelog.log
+    ./textlog -no-gui -on ENB_PHY_ULSCH_UE_DCI -on ENB_PHY_PUSCH_IQ -on ENB_PHY_PHICH -on ENB_PHY_PUCCH_1_ENERGY -on ENB_MAC_UE_UL_SCHEDULE -on ENB_MAC_UE_UL_PDU_WITH_DATA -on ENB_MAC_UE_UL_PDU -on ENB_MAC_UE_UL_SDU -on ENB_MAC_UE_UL_SDU_WITH_DATA -on LEGACY_PHY_INFO -d ../T_messages.txt -ip 192.168.3.16 >& tracelog.log
 
 }
 
